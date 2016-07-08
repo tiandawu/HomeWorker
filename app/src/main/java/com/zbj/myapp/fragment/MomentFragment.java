@@ -17,6 +17,11 @@ import com.zbj.myapp.bean.MyContact;
 /**
  * Created by tiandawu on 2016/7/5.
  */
+
+
+/**
+ * 关注
+ */
 public class MomentFragment extends Fragment {
 
     private ListView mListView;

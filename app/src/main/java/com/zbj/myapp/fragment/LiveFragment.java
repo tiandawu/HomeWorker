@@ -12,6 +12,10 @@ import com.zbj.myapp.R;
 /**
  * Created by tiandawu on 2016/7/5.
  */
+
+/**
+ * 首页
+ */
 public class LiveFragment extends Fragment {
     @Nullable
     @Override

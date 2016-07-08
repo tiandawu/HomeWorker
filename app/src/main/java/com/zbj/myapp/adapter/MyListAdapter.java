@@ -29,7 +29,7 @@ public class MyListAdapter extends BaseAdapter {
         root = new MyContact();
 
         root.setLevel(0);
-        root.setName(root.getLevel() + "-name");
+        root.setName(root.getLevel() + "-联系人");
         contacts.add(root);
     }
 
@@ -95,12 +95,17 @@ public class MyListAdapter extends BaseAdapter {
         }
     }
 
+    /**
+     * 添加条目
+     *
+     * @param position
+     */
     public void expandItem(int position) {
         MyContact contact = (MyContact) getItem(position);
         for (int i = 0; i < 2; i++) {
             MyContact myContact = new MyContact();
             myContact.setLevel(contact.getLevel() + 1);
-            myContact.setName(contact.getLevel() + 1 + "-name-" + i);
+            myContact.setName(contact.getLevel() + 1 + "-联系人-" + i);
             contact.addChild(myContact);
         }
 
@@ -110,6 +115,11 @@ public class MyListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    /**
+     * 关闭条目
+     *
+     * @param position
+     */
     public void closeItem(int position) {
         MyContact contact = (MyContact) getItem(position);
         contact.clearAllChild();
@@ -122,6 +132,12 @@ public class MyListAdapter extends BaseAdapter {
     }
 
 
+    /**
+     * 遍历条目添加新的数据
+     *
+     * @param contact
+     * @return
+     */
     private ArrayList<MyContact> getNewListData(MyContact contact) {
         for (MyContact myContact : contact.getChildList()) {
             contacts.add(myContact);
