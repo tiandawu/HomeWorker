@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.zbj.myapp.R;
 import com.zbj.myapp.activity.FindNumberActivity;
 import com.zbj.myapp.activity.PropertyAnimActivity;
+import com.zbj.myapp.activity.ViewDragHelperAct;
 import com.zbj.myapp.manager.ActivityManager;
 
 /**
@@ -24,6 +25,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
 
     private Button mStartFindNumAct;//打开找出100以内奇数的页面
     private Button mStartAnimAct;//打开属性动画的Activity页面
+    private Button mStartViewDragAct;//打开ViewDragHelperAct页面
 
     @Nullable
     @Override
@@ -38,11 +40,13 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
     private void initView(View view) {
         mStartFindNumAct = (Button) view.findViewById(R.id.start_find_number_act);
         mStartAnimAct = (Button) view.findViewById(R.id.start_animation_act);
+        mStartViewDragAct = (Button) view.findViewById(R.id.start_dragview_act);
     }
 
     private void initListener() {
         mStartFindNumAct.setOnClickListener(this);
         mStartAnimAct.setOnClickListener(this);
+        mStartViewDragAct.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +57,9 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.start_animation_act:
                 ActivityManager.startActivity(getActivity(), PropertyAnimActivity.class);
+                break;
+            case R.id.start_dragview_act:
+                ActivityManager.startActivity(getActivity(), ViewDragHelperAct.class);
                 break;
         }
     }

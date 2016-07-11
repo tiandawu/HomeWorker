@@ -4,10 +4,11 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.zbj.myapp.R;
 
@@ -21,11 +22,15 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
     private int imgHeight;
     private boolean imgIsGone = true;
 
+    private int startX, startY;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_property_animation);
         initView();
+        initListener();
     }
 
     private void initView() {
@@ -35,6 +40,7 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
 
     private void initListener() {
         mAnimBtn.setOnClickListener(this);
+        mAnimImg.setOnClickListener(this);
     }
 
 
@@ -44,9 +50,32 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
     private void hideImage(int imgWidth, int imgHeight) {
         Log.e("tt", "width = " + imgWidth);
         Log.e("tt", "height = " + imgHeight);
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mAnimImg.getLayoutParams();
-        params.setMargins(0, -imgHeight, imgWidth, 0);
-        mAnimImg.setLayoutParams(params);
+        ((View) mAnimImg.getParent()).scrollTo(0, imgHeight);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+//                Log.e("tt", "---------");
+                startX = (int) event.getX();
+                startY = (int) event.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+//                Log.e("tt", "111111111");
+                int deltaY = (int) (event.getY() - startY);
+                if (deltaY > 10) {
+                    ((View) mAnimImg.getParent()).scrollBy(0, mAnimImg.getTop()-deltaY);
+                }
+
+                break;
+            case MotionEvent.ACTION_UP:
+//                Log.e("tt", "222222");
+                break;
+        }
+        return true;
     }
 
 
@@ -65,6 +94,9 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
             case R.id.anim_btn:
                 doAnimation(imgIsGone);
                 break;
+            case R.id.anim_img:
+                Toast.makeText(this, "我是图片", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
@@ -72,23 +104,56 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
      * img做动画
      */
     private void doAnimation(boolean flag) {
+        /**
+         * 防止图片在移动过程中被点击
+         */
+        mAnimImg.setClickable(false);
+
         if (flag) {
-            Log.e("tt", "tttttttttttt");
-            ValueAnimator animator = ValueAnimator.ofInt(-imgHeight, 0);
-            animator.setDuration(3000);
-            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            /**
+             * 图片向下移动
+             */
+            ValueAnimator downAnimator = ValueAnimator.ofInt(8, 0);
+            downAnimator.setDuration(2500);
+            downAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     int value = (int) valueAnimator.getAnimatedValue();
                     Log.e("tt", "value = " + value);
-                    LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mAnimImg.getLayoutParams();
-                    params.setMargins(0,value,imgWidth,imgHeight+value);
-                    mAnimImg.setLayoutParams(params);
+                    ((View) mAnimImg.getParent()).scrollBy(0, mAnimImg.getTop() - value);
+                    if (value == 0) {
+                        mAnimBtn.setText("上");
+                        /**
+                         * 图片停止移动，设置可以点击
+                         */
+                        mAnimImg.setClickable(true);
+                    }
                 }
             });
-            animator.start();
+            downAnimator.start();
             imgIsGone = false;
         } else {
+            /**
+             * 图片向上移动
+             */
+            ValueAnimator upAnimator = ValueAnimator.ofInt(0, 10);
+            upAnimator.setDuration(2500);
+            upAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    int value = (int) valueAnimator.getAnimatedValue();
+                    Log.e("tt", "value = " + value);
+                    ((View) mAnimImg.getParent()).scrollBy(0, mAnimImg.getTop() + value);
+                    if (value == 10) {
+                        mAnimBtn.setText("下");
+                        /**
+                         * 图片停止移动，设置可以点击
+                         */
+                        mAnimImg.setClickable(true);
+                    }
+                }
+            });
+            upAnimator.start();
             imgIsGone = true;
         }
     }
