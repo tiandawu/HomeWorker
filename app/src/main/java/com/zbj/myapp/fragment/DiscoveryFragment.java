@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.zbj.myapp.R;
 import com.zbj.myapp.activity.FindNumberActivity;
+import com.zbj.myapp.activity.PropertyAnimActivity;
 import com.zbj.myapp.manager.ActivityManager;
 
 /**
@@ -22,6 +23,7 @@ import com.zbj.myapp.manager.ActivityManager;
 public class DiscoveryFragment extends Fragment implements View.OnClickListener {
 
     private Button mStartFindNumAct;//打开找出100以内奇数的页面
+    private Button mStartAnimAct;//打开属性动画的Activity页面
 
     @Nullable
     @Override
@@ -35,10 +37,12 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
 
     private void initView(View view) {
         mStartFindNumAct = (Button) view.findViewById(R.id.start_find_number_act);
+        mStartAnimAct = (Button) view.findViewById(R.id.start_animation_act);
     }
 
     private void initListener() {
         mStartFindNumAct.setOnClickListener(this);
+        mStartAnimAct.setOnClickListener(this);
     }
 
     @Override
@@ -46,6 +50,9 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.start_find_number_act:
                 ActivityManager.startActivity(getActivity(), FindNumberActivity.class);
+                break;
+            case R.id.start_animation_act:
+                ActivityManager.startActivity(getActivity(), PropertyAnimActivity.class);
                 break;
         }
     }

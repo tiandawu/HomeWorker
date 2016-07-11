@@ -17,6 +17,7 @@
         </activity>
 
         <activity android:name=".activity.FindNumberActivity" />
+        <activity android:name=".activity.PropertyAnimActivity" />
     </application>
 
 </manifest>
