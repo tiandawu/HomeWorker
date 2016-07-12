@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.zbj.myapp.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by tiandawu on 2016/7/8.
  */
@@ -15,9 +17,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
 
     private Context mContext;
-    private int[] numbers;
+    //    private int[] numbers;
+    private ArrayList<Integer> numbers;
 
-    public MyRecyclerViewAdapter(Context mContext, int[] datas) {
+    public MyRecyclerViewAdapter(Context mContext, ArrayList<Integer> datas) {
         this.mContext = mContext;
         this.numbers = datas;
     }
@@ -32,12 +35,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        holder.showNumber.setText("数字： " + numbers[position]);
+        holder.showNumber.setText("数字： " + numbers.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return numbers.length;
+        return numbers.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
