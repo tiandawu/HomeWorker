@@ -64,15 +64,18 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
                 startY = (int) event.getY();
                 break;
             case MotionEvent.ACTION_MOVE:
-//                Log.e("tt", "111111111");
+//                Log.e("tt", "---------");
                 int deltaY = (int) (event.getY() - startY);
-                if (deltaY > 10) {
-                    ((View) mAnimImg.getParent()).scrollBy(0, mAnimImg.getTop()-deltaY);
-                }
+//                Log.e("tt", "deltaY = " + deltaY);
+//                Log.e("tt", "imgTop = " + mAnimImg.getTop());
+//                Log.e("tt", "imgBttom = " + mAnimImg.getBottom());
 
+                ((View) mAnimImg.getParent()).scrollBy(0, mAnimImg.getTop() - deltaY);
+
+                startY = (int) event.getY();
                 break;
             case MotionEvent.ACTION_UP:
-//                Log.e("tt", "222222");
+//                Log.e("tt", "---------");
                 break;
         }
         return true;
@@ -114,7 +117,7 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
              * 图片向下移动
              */
             ValueAnimator downAnimator = ValueAnimator.ofInt(8, 0);
-            downAnimator.setDuration(2500);
+            downAnimator.setDuration(2600);
             downAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -137,7 +140,7 @@ public class PropertyAnimActivity extends Activity implements View.OnClickListen
              * 图片向上移动
              */
             ValueAnimator upAnimator = ValueAnimator.ofInt(0, 10);
-            upAnimator.setDuration(2500);
+            upAnimator.setDuration(2650);
             upAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
