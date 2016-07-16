@@ -26,6 +26,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
     private Button mStartFindNumAct;//打开找出100以内奇数的页面
     private Button mStartAnimAct;//打开属性动画的Activity页面
     private Button mStartViewDragAct;//打开ViewDragHelperAct页面
+    private Button mStartWaterfallAct;//打开RecyclerViewAct页面
 
     @Nullable
     @Override
@@ -41,12 +42,14 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
         mStartFindNumAct = (Button) view.findViewById(R.id.start_find_number_act);
         mStartAnimAct = (Button) view.findViewById(R.id.start_animation_act);
         mStartViewDragAct = (Button) view.findViewById(R.id.start_dragview_act);
+        mStartWaterfallAct = (Button) view.findViewById(R.id.start_waterfall_act);
     }
 
     private void initListener() {
         mStartFindNumAct.setOnClickListener(this);
         mStartAnimAct.setOnClickListener(this);
         mStartViewDragAct.setOnClickListener(this);
+        mStartWaterfallAct.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +63,8 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.start_dragview_act:
                 ActivityManager.startActivity(getActivity(), ViewDragHelperAct.class);
+                break;
+            case R.id.start_waterfall_act:
                 break;
         }
     }

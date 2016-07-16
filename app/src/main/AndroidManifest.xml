@@ -23,6 +23,7 @@
         <activity android:name=".activity.FindNumberActivity" />
         <activity android:name=".activity.PropertyAnimActivity" />
         <activity android:name=".activity.ViewDragHelperAct" />
+        <activity android:name=".activity.WaterfallActivity" />
     </application>
 
 </manifest>
