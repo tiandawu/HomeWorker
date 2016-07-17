@@ -12,6 +12,7 @@ import com.zbj.myapp.R;
 import com.zbj.myapp.activity.FindNumberActivity;
 import com.zbj.myapp.activity.PropertyAnimActivity;
 import com.zbj.myapp.activity.ViewDragHelperAct;
+import com.zbj.myapp.activity.WaterfallActivity;
 import com.zbj.myapp.manager.ActivityManager;
 
 /**
@@ -65,6 +66,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
                 ActivityManager.startActivity(getActivity(), ViewDragHelperAct.class);
                 break;
             case R.id.start_waterfall_act:
+                ActivityManager.startActivity(getActivity(), WaterfallActivity.class);
                 break;
         }
     }
