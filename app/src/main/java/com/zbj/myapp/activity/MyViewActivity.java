@@ -6,12 +6,12 @@ import android.os.Bundle;
 import com.zbj.myapp.R;
 
 /**
- * Created by tiandawu on 2016/7/11.
+ * Created by tiandawu on 2016/7/18.
  */
-public class ViewDragHelperAct extends Activity {
+public class MyViewActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_drag);
+        setContentView(R.layout.activity_my_view);
     }
 }

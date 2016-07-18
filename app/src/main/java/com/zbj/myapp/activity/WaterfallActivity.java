@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zbj.myapp.R;
@@ -37,6 +38,7 @@ public class WaterfallActivity extends Activity {
                 case 0:
                     adapter.notifyDataSetChanged();
                     mRefreshLayout.setRefreshing(false);
+                    Log.e("tt", "_++++++++++");
                     break;
             }
         }
@@ -78,6 +80,7 @@ public class WaterfallActivity extends Activity {
         loadMore();
         adapter = new WaterfallRecyclerAdapter(this, imgeUrls);
         mRecyclerView.setAdapter(adapter);
+        Log.e("tt", "==========");
     }
 
 
@@ -86,12 +89,14 @@ public class WaterfallActivity extends Activity {
      */
     private void loadMore() {
         url = baseUrl + String.valueOf(pageSize) + "/" + String.valueOf(page);
+        Log.e("tt", "url = " + url.toString());
         new Thread() {
             @Override
             public void run() {
                 try {
                     imgeUrls.addAll(0,HttpUtil.getImageUrls(url));
                     mHandler.sendEmptyMessage(0);
+                    Log.e("tt", "---------");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

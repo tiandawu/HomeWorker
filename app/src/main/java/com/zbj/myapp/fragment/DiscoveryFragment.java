@@ -10,8 +10,9 @@ import android.widget.Button;
 
 import com.zbj.myapp.R;
 import com.zbj.myapp.activity.FindNumberActivity;
+import com.zbj.myapp.activity.MyViewActivity;
+import com.zbj.myapp.activity.PorterDuffXfermodeActivity;
 import com.zbj.myapp.activity.PropertyAnimActivity;
-import com.zbj.myapp.activity.ViewDragHelperAct;
 import com.zbj.myapp.activity.WaterfallActivity;
 import com.zbj.myapp.manager.ActivityManager;
 
@@ -26,8 +27,9 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
 
     private Button mStartFindNumAct;//打开找出100以内奇数的页面
     private Button mStartAnimAct;//打开属性动画的Activity页面
-    private Button mStartViewDragAct;//打开ViewDragHelperAct页面
+    private Button mStartMyViewAct;//打开MyView页面
     private Button mStartWaterfallAct;//打开RecyclerViewAct页面
+    private Button mStartPorterDuffXfermodeAct;//打开PorterDuffXfermode页面
 
     @Nullable
     @Override
@@ -42,15 +44,17 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
     private void initView(View view) {
         mStartFindNumAct = (Button) view.findViewById(R.id.start_find_number_act);
         mStartAnimAct = (Button) view.findViewById(R.id.start_animation_act);
-        mStartViewDragAct = (Button) view.findViewById(R.id.start_dragview_act);
+        mStartMyViewAct = (Button) view.findViewById(R.id.start_myview_act);
         mStartWaterfallAct = (Button) view.findViewById(R.id.start_waterfall_act);
+        mStartPorterDuffXfermodeAct = (Button) view.findViewById(R.id.start_PorterDuffXfermode_act);
     }
 
     private void initListener() {
         mStartFindNumAct.setOnClickListener(this);
         mStartAnimAct.setOnClickListener(this);
-        mStartViewDragAct.setOnClickListener(this);
+        mStartMyViewAct.setOnClickListener(this);
         mStartWaterfallAct.setOnClickListener(this);
+        mStartPorterDuffXfermodeAct.setOnClickListener(this);
     }
 
     @Override
@@ -62,11 +66,14 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
             case R.id.start_animation_act:
                 ActivityManager.startActivity(getActivity(), PropertyAnimActivity.class);
                 break;
-            case R.id.start_dragview_act:
-                ActivityManager.startActivity(getActivity(), ViewDragHelperAct.class);
+            case R.id.start_myview_act:
+                ActivityManager.startActivity(getActivity(), MyViewActivity.class);
                 break;
             case R.id.start_waterfall_act:
                 ActivityManager.startActivity(getActivity(), WaterfallActivity.class);
+                break;
+            case R.id.start_PorterDuffXfermode_act:
+                ActivityManager.startActivity(getActivity(), PorterDuffXfermodeActivity.class);
                 break;
         }
     }
