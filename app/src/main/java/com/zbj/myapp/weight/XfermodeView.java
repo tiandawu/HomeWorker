@@ -11,16 +11,19 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.zbj.myapp.activity.PorterDuffXfermodeActivity;
 import com.zbj.myapp.tools.ScreenUtils;
 
 /**
  * Created by tiandawu on 2016/7/18.
  */
-public class XfermodeView extends View {
+public class XfermodeView extends View implements PorterDuffXfermodeActivity.OnChangeListener {
 
     private PorterDuffXfermode pdXfermod;
-    private static PorterDuff.Mode PD_MODE = PorterDuff.Mode.ADD;
+    private static PorterDuff.Mode PD_MODE = PorterDuff.Mode.SRC_OVER;
     private int scrennWidth, scrennHeight;
+    private int width = 300;
+    private int height = 300;
     private Bitmap srcBitmap, dstBitmap;
 
     private Paint mPaint;
@@ -39,17 +42,18 @@ public class XfermodeView extends View {
     }
 
     private void init(Context context) {
-        pdXfermod = new PorterDuffXfermode(PD_MODE);
+        pdXfermod = new PorterDuffXfermode(getPdMode());
         scrennWidth = ScreenUtils.getScreenW(context);
         scrennHeight = ScreenUtils.getScreenH(context);
 
-        srcBitmap = makeSrc(300, 300);
-        dstBitmap = makeDst(300, 300);
+        srcBitmap = makeSrc(width, height);
+        dstBitmap = makeDst(width, height);
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.WHITE);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setFilterBitmap(false);
+        PorterDuffXfermodeActivity.setOnChangeListener(this);
     }
 
     private Bitmap makeDst(int width, int height) {
@@ -73,6 +77,25 @@ public class XfermodeView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+        canvas.drawBitmap(dstBitmap, (scrennWidth - width) / 2, (scrennHeight - height) / 4, mPaint);
+        mPaint.setXfermode(pdXfermod);
+        canvas.drawBitmap(srcBitmap, (scrennWidth - width) / 2, (scrennHeight - height) / 4, mPaint);
+        mPaint.setXfermode(null);
+
+    }
+
+
+    @Override
+    public void changeState() {
+        pdXfermod = new PorterDuffXfermode(getPdMode());
+        invalidate();
+    }
+
+    public static PorterDuff.Mode getPdMode() {
+        return PD_MODE;
+    }
+
+    public static void setPdMode(PorterDuff.Mode pdMode) {
+        PD_MODE = pdMode;
     }
 }

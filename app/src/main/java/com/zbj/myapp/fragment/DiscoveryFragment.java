@@ -13,6 +13,7 @@ import com.zbj.myapp.activity.FindNumberActivity;
 import com.zbj.myapp.activity.MyViewActivity;
 import com.zbj.myapp.activity.PorterDuffXfermodeActivity;
 import com.zbj.myapp.activity.PropertyAnimActivity;
+import com.zbj.myapp.activity.TakeOffClothesActivity;
 import com.zbj.myapp.activity.WaterfallActivity;
 import com.zbj.myapp.manager.ActivityManager;
 
@@ -30,6 +31,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
     private Button mStartMyViewAct;//打开MyView页面
     private Button mStartWaterfallAct;//打开RecyclerViewAct页面
     private Button mStartPorterDuffXfermodeAct;//打开PorterDuffXfermode页面
+    private Button mStartTakeOffClothesAct;//打开脱掉美女衣服页面
 
     @Nullable
     @Override
@@ -47,6 +49,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
         mStartMyViewAct = (Button) view.findViewById(R.id.start_myview_act);
         mStartWaterfallAct = (Button) view.findViewById(R.id.start_waterfall_act);
         mStartPorterDuffXfermodeAct = (Button) view.findViewById(R.id.start_PorterDuffXfermode_act);
+        mStartTakeOffClothesAct = (Button) view.findViewById(R.id.start_take_off_clothes_act);
     }
 
     private void initListener() {
@@ -55,6 +58,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
         mStartMyViewAct.setOnClickListener(this);
         mStartWaterfallAct.setOnClickListener(this);
         mStartPorterDuffXfermodeAct.setOnClickListener(this);
+        mStartTakeOffClothesAct.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +78,9 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.start_PorterDuffXfermode_act:
                 ActivityManager.startActivity(getActivity(), PorterDuffXfermodeActivity.class);
+                break;
+            case R.id.start_take_off_clothes_act:
+                ActivityManager.startActivity(getActivity(), TakeOffClothesActivity.class);
                 break;
         }
     }

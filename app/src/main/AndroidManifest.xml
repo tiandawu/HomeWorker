@@ -25,6 +25,7 @@
         <activity android:name=".activity.MyViewActivity" />
         <activity android:name=".activity.WaterfallActivity" />
         <activity android:name=".activity.PorterDuffXfermodeActivity" />
+        <activity android:name=".activity.TakeOffClothesActivity" />
     </application>
 
 </manifest>

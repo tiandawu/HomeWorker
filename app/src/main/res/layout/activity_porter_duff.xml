@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear" />
+
+            <Button
+                android:id="@+id/src"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Src" />
+
+            <Button
+                android:id="@+id/dst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dst" />
+
+            <Button
+                android:id="@+id/src_over"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="src_over" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dst_over"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dst_over" />
+
+            <Button
+                android:id="@+id/src_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Src_in" />
+
+            <Button
+                android:id="@+id/dest_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dest_in" />
+
+            <Button
+                android:id="@+id/src_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="src_out" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dst_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dst_out" />
+
+            <Button
+                android:id="@+id/srca_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SrcA_top" />
+
+            <Button
+                android:id="@+id/dsta_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dsta_top" />
+
+            <Button
+                android:id="@+id/xor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/darken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="darken" />
+
+            <Button
+                android:id="@+id/lithten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lighten" />
+
+            <Button
+                android:id="@+id/multiply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mutiply" />
+
+            <Button
+                android:id="@+id/screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="screen" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.zbj.myapp.weight.XfermodeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp" />
+
 
 </LinearLayout>
