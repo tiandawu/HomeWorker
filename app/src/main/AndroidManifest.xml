@@ -26,6 +26,7 @@
         <activity android:name=".activity.WaterfallActivity" />
         <activity android:name=".activity.PorterDuffXfermodeActivity" />
         <activity android:name=".activity.TakeOffClothesActivity" />
+        <activity android:name=".activity.LoadTextActivity" />
     </application>
 
 </manifest>

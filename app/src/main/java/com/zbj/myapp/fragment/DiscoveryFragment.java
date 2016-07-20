@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.zbj.myapp.R;
 import com.zbj.myapp.activity.FindNumberActivity;
+import com.zbj.myapp.activity.LoadTextActivity;
 import com.zbj.myapp.activity.MyViewActivity;
 import com.zbj.myapp.activity.PorterDuffXfermodeActivity;
 import com.zbj.myapp.activity.PropertyAnimActivity;
@@ -32,6 +33,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
     private Button mStartWaterfallAct;//打开RecyclerViewAct页面
     private Button mStartPorterDuffXfermodeAct;//打开PorterDuffXfermode页面
     private Button mStartTakeOffClothesAct;//打开脱掉美女衣服页面
+    private Button mStartLoadTextAct;//打开加载文字页面
 
     @Nullable
     @Override
@@ -50,6 +52,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
         mStartWaterfallAct = (Button) view.findViewById(R.id.start_waterfall_act);
         mStartPorterDuffXfermodeAct = (Button) view.findViewById(R.id.start_PorterDuffXfermode_act);
         mStartTakeOffClothesAct = (Button) view.findViewById(R.id.start_take_off_clothes_act);
+        mStartLoadTextAct = (Button) view.findViewById(R.id.start_load_text_act);
     }
 
     private void initListener() {
@@ -59,6 +62,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
         mStartWaterfallAct.setOnClickListener(this);
         mStartPorterDuffXfermodeAct.setOnClickListener(this);
         mStartTakeOffClothesAct.setOnClickListener(this);
+        mStartLoadTextAct.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +85,9 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.start_take_off_clothes_act:
                 ActivityManager.startActivity(getActivity(), TakeOffClothesActivity.class);
+                break;
+            case R.id.start_load_text_act:
+                ActivityManager.startActivity(getActivity(), LoadTextActivity.class);
                 break;
         }
     }
