@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/HomeWorker.iml" filepath="$PROJECT_DIR$/HomeWorker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/zuoye.iml" filepath="$PROJECT_DIR$/zuoye.iml" />
     </modules>
   </component>
 </project>

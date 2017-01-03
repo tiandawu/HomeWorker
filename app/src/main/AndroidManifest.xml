@@ -19,14 +19,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.FindNumberActivity" />
-        <activity android:name=".activity.PropertyAnimActivity" />
-        <activity android:name=".activity.MyViewActivity" />
-        <activity android:name=".activity.WaterfallActivity" />
-        <activity android:name=".activity.PorterDuffXfermodeActivity" />
-        <activity android:name=".activity.TakeOffClothesActivity" />
-        <activity android:name=".activity.LoadTextActivity" />
+        <activity
+            android:name=".activity.FindNumberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PropertyAnimActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MyViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WaterfallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PorterDuffXfermodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TakeOffClothesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoadTextActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ScrollerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TextViewLineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SharderActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
